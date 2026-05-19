@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": {
+    "tag": "rubies:ruby_ores"
+  },
+  "result": {
+    "id": "rubies:ruby"
+  },
+  "experience": 1,
+  "cookingtime": 100
+}

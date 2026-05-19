@@ -1,0 +1,9 @@
+{
+  "item.rubies.ruby": "Ruby",
+
+  "block.rubies.ruby_block": "Block of Ruby",
+  "block.rubies.ruby_ore": "Ruby Ore",
+  "block.rubies.ruby_deepslate_ore": "Deepslate Ruby Ore",
+
+  "itemgroup.rubies.rubies_items": "Rubies' Items"
+}
