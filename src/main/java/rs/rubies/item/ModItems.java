@@ -9,12 +9,16 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import rs.rubies.Rubies;
+import rs.rubies.item.special.ChiselItem;
 
 import java.util.function.Function;
 
 public class ModItems {
 
     public static final Item RUBY = registerItem("ruby", Item::new);
+
+    public static final Item PHILOSOPHERS_CHISEL = registerItem("philosophers_chisel", properties -> new ChiselItem(properties.durability(16)));
+
     //public static final Item RUBY = registerItem("ruby", properties -> new Item(properties);
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {

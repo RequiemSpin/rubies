@@ -20,6 +20,7 @@ public class ModInvTabs {
                         output.accept(ModBlocks.RUBY_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RUBY_BLOCK);
                         output.accept(ModItems.RUBY);
+                        output.accept(ModItems.PHILOSOPHERS_CHISEL);
 
                     }).build());
 

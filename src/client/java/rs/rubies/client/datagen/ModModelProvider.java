@@ -27,5 +27,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerators.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerators.generateFlatItem(ModItems.PHILOSOPHERS_CHISEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+
     }
 }

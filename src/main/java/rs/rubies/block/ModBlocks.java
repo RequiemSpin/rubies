@@ -14,12 +14,13 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import rs.rubies.Rubies;
+import rs.rubies.block.special.RubyBlock;
 
 import java.util.function.Function;
 
 public class ModBlocks {
 
-    public static final Block RUBY_BLOCK = registerBlock("ruby_block", properties -> new Block(properties.requiresCorrectToolForDrops()
+    public static final Block RUBY_BLOCK = registerBlock("ruby_block", properties -> new RubyBlock(properties.requiresCorrectToolForDrops()
             .strength(5.0f, 6.0f).sound(SoundType.METAL).mapColor(MapColor.FIRE)));
     public static final Block RUBY_ORE = registerBlock("ruby_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
             .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
