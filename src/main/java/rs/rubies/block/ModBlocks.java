@@ -30,6 +30,13 @@ public class ModBlocks {
             .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
     public static final Block RETURN_DEEPSLATE_ORE = registerBlock("return_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
             .strength(3.0f, 4.5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
+    public static final Block LEAD_BLOCK = registerBlock("lead_block", properties -> new Block(properties.requiresCorrectToolForDrops()
+            .strength(5.0f, 6.0f).sound(SoundType.METAL).mapColor(MapColor.METAL)));
+    public static final Block LEAD_ORE = registerBlock("lead_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+            .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
+    public static final Block LEAD_DEEPSLATE_ORE = registerBlock("lead_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+            .strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
+
 
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {

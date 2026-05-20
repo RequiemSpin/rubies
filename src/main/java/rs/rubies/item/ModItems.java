@@ -8,6 +8,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import org.apache.logging.log4j.message.ReusableMessage;
 import rs.rubies.Rubies;
 import rs.rubies.item.special.ChiselItem;
 import rs.rubies.item.special.ReturnItem;
@@ -16,10 +17,21 @@ import java.util.function.Function;
 
 public class ModItems {
 
+    // Ingredients
     public static final Item RUBY = registerItem("ruby", Item::new);
-    public static final Item RETURN_PEBBLE = registerItem("return_pebble", ReturnItem::new);
+    public static final Item BLOOD_VIAL = registerItem("blood_vial", properties -> new Item(properties.durability(4)));
 
+    // Ores & Ingots
+    public static final Item LEAD_INGOT = registerItem("lead_ingot", Item::new);
+    public static final Item RAW_LEAD = registerItem("raw_lead", Item::new);
+
+    // Special
+    public static final Item RETURN_PEBBLE = registerItem("return_pebble", properties -> new ReturnItem(properties.stacksTo(1)));
     public static final Item PHILOSOPHERS_CHISEL = registerItem("philosophers_chisel", properties -> new ChiselItem(properties.durability(16)));
+
+    //Trinkets
+    public static final Item VACANT_TRINKET = registerItem("vacant_trinket", Item::new);
+    public static final Item SHATTERED_VACANT_TRINKET = registerItem("shattered_vacant_trinket", Item::new);
 
     //public static final Item RUBY = registerItem("ruby", properties -> new Item(properties);
 

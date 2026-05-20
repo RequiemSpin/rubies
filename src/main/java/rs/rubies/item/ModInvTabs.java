@@ -20,11 +20,31 @@ public class ModInvTabs {
                         output.accept(ModBlocks.RUBY_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RUBY_BLOCK);
                         output.accept(ModItems.RUBY);
+
                         output.accept(ModItems.PHILOSOPHERS_CHISEL);
+                        output.accept(ModItems.BLOOD_VIAL);
+
+                        output.accept(ModBlocks.LEAD_BLOCK);
+                        output.accept(ModBlocks.LEAD_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.LEAD_ORE);
+                        output.accept(ModItems.LEAD_INGOT);
+                        output.accept(ModItems.RAW_LEAD);
 
                         output.accept(ModBlocks.RETURN_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RETURN_ORE);
                         output.accept(ModItems.RETURN_PEBBLE);
+
+                    }).build());
+
+    public static final CreativeModeTab TRINKETS_TAB = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+            Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "trinkets"), FabricCreativeModeTab.builder()
+                    .icon(() -> new ItemStack((ModItems.VACANT_TRINKET))).title(Component.translatable("invtab.rubies.trinkets")).displayItems((parameters, output) -> {
+
+                        output.accept((ModItems.VACANT_TRINKET));
+
+                        //Trinkets
+
+                        output.accept(ModItems.SHATTERED_VACANT_TRINKET);
 
                     }).build());
 
