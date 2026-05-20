@@ -31,7 +31,7 @@ public class ReturnItem extends Item {
         return ItemUseAnimation.BOW;
     }
 
-    // Display Particles & Teleport
+    // Display Particles & Telepor
     @Override
     public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int ticksRemaining) {
         if ((ticksRemaining%15==0) && (!level.isClientSide())) {
