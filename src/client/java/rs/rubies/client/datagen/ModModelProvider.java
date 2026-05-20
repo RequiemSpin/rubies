@@ -19,6 +19,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockModelGenerators.createTrivialCube(ModBlocks.RUBY_BLOCK);
         blockModelGenerators.createTrivialCube(ModBlocks.RUBY_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.RUBY_DEEPSLATE_ORE);
+        blockModelGenerators.createTrivialCube(ModBlocks.RETURN_ORE);
+        blockModelGenerators.createTrivialCube(ModBlocks.RETURN_DEEPSLATE_ORE);
 
     }
 
@@ -28,6 +30,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
 
         itemModelGenerators.generateFlatItem(ModItems.PHILOSOPHERS_CHISEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.RETURN_PEBBLE, ModelTemplates.FLAT_HANDHELD_ITEM);
 
     }
 }

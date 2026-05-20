@@ -26,6 +26,11 @@ public class ModBlocks {
             .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
     public static final Block RUBY_DEEPSLATE_ORE = registerBlock("ruby_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
             .strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
+    public static final Block RETURN_ORE = registerBlock("return_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+            .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
+    public static final Block RETURN_DEEPSLATE_ORE = registerBlock("return_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+            .strength(3.0f, 4.5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
+
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
         Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, name))));

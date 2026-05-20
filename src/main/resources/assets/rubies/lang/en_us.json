@@ -5,6 +5,8 @@
   "block.rubies.ruby_block": "Block of Ruby",
   "block.rubies.ruby_ore": "Ruby Ore",
   "block.rubies.ruby_deepslate_ore": "Deepslate Ruby Ore",
+  "block.rubies.return_ore": "Return Ore",
+  "block.rubies.return_deepslate_ore": "Deepslate Return Ore",
 
   "invtab.rubies.rubies_items": "§4Rubies' Items"
 }

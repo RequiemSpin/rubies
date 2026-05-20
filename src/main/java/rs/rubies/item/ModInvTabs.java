@@ -22,6 +22,10 @@ public class ModInvTabs {
                         output.accept(ModItems.RUBY);
                         output.accept(ModItems.PHILOSOPHERS_CHISEL);
 
+                        output.accept(ModBlocks.RETURN_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.RETURN_ORE);
+                        output.accept(ModItems.RETURN_PEBBLE);
+
                     }).build());
 
     public static void registerModInvTabs() {
