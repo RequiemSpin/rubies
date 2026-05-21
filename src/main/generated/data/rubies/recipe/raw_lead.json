@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "rubies:raw_lead_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "rubies:raw_lead"
+  }
+}
