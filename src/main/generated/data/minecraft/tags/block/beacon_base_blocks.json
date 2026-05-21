@@ -1,5 +1,6 @@
 {
   "values": [
-    "rubies:ruby_block"
+    "rubies:ruby_block",
+    "rubies:lead_block"
   ]
 }

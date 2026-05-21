@@ -3,16 +3,26 @@ package rs.rubies.client.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.ItemLike;
+import rs.rubies.Rubies;
 import rs.rubies.block.ModBlocks;
 import rs.rubies.item.ModItems;
 
+import javax.xml.crypto.Data;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -27,7 +37,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             public void buildRecipes() {
                 // "Tags"
                 List<ItemLike> RUBY_SMELTABLES = List.of(ModBlocks.RUBY_ORE, ModBlocks.RUBY_DEEPSLATE_ORE);
-                List<ItemLike> LEAD_SMELTABLES = List.of(ModBlocks.LEAD_ORE, ModBlocks.LEAD_DEEPSLATE_ORE);
+                List<ItemLike> LEAD_SMELTABLES = List.of(ModBlocks.LEAD_ORE, ModBlocks.LEAD_DEEPSLATE_ORE, ModItems.RAW_LEAD);
 
                 // Ores
                 oreSmelting(RUBY_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.RUBY, 1, 200, "ruby");
@@ -35,9 +45,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 oreSmelting(LEAD_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.LEAD_INGOT, 1, 200, "lead");
                 oreBlasting(LEAD_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.LEAD_INGOT, 1, 100, "lead");
 
-                // Ingot to Block
+                // Ingot/Gem to Block
                 nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.RUBY, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUBY_BLOCK);
                 nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.LEAD_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LEAD_BLOCK);
+                nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.RAW_LEAD, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_LEAD_BLOCK);
 
                 // Trinkets
                 shapeless(RecipeCategory.MISC, ModItems.SHATTERED_VACANT_TRINKET)
@@ -48,8 +59,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 shaped(RecipeCategory.MISC, ModItems.PHILOSOPHERS_CHISEL)
                         .pattern(" #@").pattern(" %#").pattern("#  ")
                         .define('#', ModItems.LEAD_INGOT).define('@', ModItems.RUBY).define('%', ModItems.BLOOD_VIAL)
-                        .unlockedBy(getHasName(ModItems.BLOOD_VIAL), has(ModItems.BLOOD_VIAL)).group(("group"));
-
+                        .unlockedBy(getHasName(ModItems.BLOOD_VIAL), has(ModItems.BLOOD_VIAL)).group(("chisel"));
+                shapeless(RecipeCategory.MISC, ModItems.BLOOD_VIAL)
+                        .requires(ModItems.RUBY).requires(Items.GLASS_BOTTLE)
+                        .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).group(("vial"));
 
                 /*
 

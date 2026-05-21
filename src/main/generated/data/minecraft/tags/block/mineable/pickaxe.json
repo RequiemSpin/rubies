@@ -1,5 +1,7 @@
 {
   "values": [
-    "#rubies:ruby_blocks"
+    "#rubies:ruby_blocks",
+    "#rubies:return_ores",
+    "#rubies:lead_blocks"
   ]
 }

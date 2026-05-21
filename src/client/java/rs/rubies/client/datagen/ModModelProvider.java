@@ -23,6 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockModelGenerators.createTrivialCube(ModBlocks.RETURN_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.RETURN_DEEPSLATE_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.LEAD_BLOCK);
+        blockModelGenerators.createTrivialCube(ModBlocks.RAW_LEAD_BLOCK);
         blockModelGenerators.createTrivialCube(ModBlocks.LEAD_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.LEAD_DEEPSLATE_ORE);
 

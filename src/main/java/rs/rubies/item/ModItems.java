@@ -1,15 +1,13 @@
 package rs.rubies.item;
 
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import org.apache.logging.log4j.message.ReusableMessage;
 import rs.rubies.Rubies;
+import rs.rubies.item.special.BloodVialItem;
 import rs.rubies.item.special.ChiselItem;
 import rs.rubies.item.special.ReturnItem;
 
@@ -19,7 +17,7 @@ public class ModItems {
 
     // Ingredients
     public static final Item RUBY = registerItem("ruby", Item::new);
-    public static final Item BLOOD_VIAL = registerItem("blood_vial", properties -> new Item(properties.durability(4)));
+    public static final Item BLOOD_VIAL = registerItem("blood_vial", properties -> new BloodVialItem(properties.durability(4).stacksTo(1)));
 
     // Ores & Ingots
     public static final Item LEAD_INGOT = registerItem("lead_ingot", Item::new);

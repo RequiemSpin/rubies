@@ -17,22 +17,23 @@ public class ModInvTabs {
                     .icon(() -> new ItemStack((ModItems.RUBY))).title(Component.translatable("invtab.rubies.rubies_items")).displayItems((parameters, output) -> {
 
                         output.accept(ModBlocks.RUBY_ORE);
+                        output.accept(ModItems.RUBY);
                         output.accept(ModBlocks.RUBY_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RUBY_BLOCK);
-                        output.accept(ModItems.RUBY);
 
                         output.accept(ModItems.PHILOSOPHERS_CHISEL);
                         output.accept(ModItems.BLOOD_VIAL);
 
                         output.accept(ModBlocks.LEAD_BLOCK);
+                        output.accept(ModItems.LEAD_INGOT);
                         output.accept(ModBlocks.LEAD_DEEPSLATE_ORE);
                         output.accept(ModBlocks.LEAD_ORE);
-                        output.accept(ModItems.LEAD_INGOT);
+                        output.accept(ModBlocks.RAW_LEAD_BLOCK);
                         output.accept(ModItems.RAW_LEAD);
 
+                        output.accept(ModItems.RETURN_PEBBLE);
                         output.accept(ModBlocks.RETURN_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RETURN_ORE);
-                        output.accept(ModItems.RETURN_PEBBLE);
 
                     }).build());
 

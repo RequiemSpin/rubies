@@ -31,10 +31,12 @@ public class ModBlocks {
     public static final Block RETURN_DEEPSLATE_ORE = registerBlock("return_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
             .strength(3.0f, 4.5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
     public static final Block LEAD_BLOCK = registerBlock("lead_block", properties -> new Block(properties.requiresCorrectToolForDrops()
-            .strength(5.0f, 6.0f).sound(SoundType.METAL).mapColor(MapColor.METAL)));
-    public static final Block LEAD_ORE = registerBlock("lead_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+            .strength(5.0f, 6.0f).sound(SoundType.METAL).mapColor(MapColor.LAPIS)));
+    public static final Block RAW_LEAD_BLOCK = registerBlock("raw_lead_block", properties -> new Block(properties.requiresCorrectToolForDrops()
+            .strength(5.0f, 6.0f).sound(SoundType.METAL).mapColor(MapColor.LAPIS)));
+    public static final Block LEAD_ORE = registerBlock("lead_ore", properties -> new Block(properties.requiresCorrectToolForDrops()
             .strength(3.0f, 3.0f).sound(SoundType.STONE).mapColor(MapColor.STONE)));
-    public static final Block LEAD_DEEPSLATE_ORE = registerBlock("lead_deepslate_ore", properties -> new DropExperienceBlock(UniformInt.of(3, 7), properties.requiresCorrectToolForDrops()
+    public static final Block LEAD_DEEPSLATE_ORE = registerBlock("lead_deepslate_ore", properties -> new Block(properties.requiresCorrectToolForDrops()
             .strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE).mapColor(MapColor.DEEPSLATE)));
 
 
@@ -53,5 +55,6 @@ public class ModBlocks {
 
     public static void registerMobBlocks() {
         Rubies.LOGGER.info("Registering Blocks" + Rubies.MOD_ID);
+        RubyBlock.initializeTransformMap();
     }
 }

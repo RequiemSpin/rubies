@@ -1,13 +1,10 @@
 package rs.rubies.item.special;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -15,35 +12,30 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.portal.TeleportTransition;
 import rs.rubies.miscellaneous.ModDamageSources;
 
-public class ReturnItem extends Item {
+public class BloodVialItem extends Item {
 
-    public ReturnItem(Properties properties) { super(properties); }
+    public BloodVialItem(Properties properties) { super(properties); }
 
     // Item Duration
     @Override
-    public int getUseDuration(ItemStack itemStack, LivingEntity user) { return 30; }
+    public int getUseDuration(ItemStack itemStack, LivingEntity user) { return 20; }
 
     // Stretch
     public ItemUseAnimation getUseAnimation(final ItemStack itemStack) {
         return ItemUseAnimation.BOW;
     }
 
-    // Display Particles & Teleport
+    // Hurt Player & Gain Durability
     @Override
     public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int ticksRemaining) {
-        if ((ticksRemaining%15==0) && (!level.isClientSide())) {
-            level.addParticle(ParticleTypes.PORTAL, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), .5f, .5f, .5f);
-        }
         if ((ticksRemaining==1) && (livingEntity instanceof Player player) && (player instanceof ServerPlayer serverPlayer)) {
             float currentHealth = player.getHealth();
-            player.hurtServer((ServerLevel) level, ModDamageSources.registerDamageSource(DamageTypes.STARVE, level), 8f);
-            if (currentHealth>8f) {
-                player.teleport(serverPlayer.findRespawnPositionAndUseSpawnBlock(false, TeleportTransition.DO_NOTHING));
-                level.playSound(null, player, SoundEvents.PORTAL_TRIGGER, SoundSource.PLAYERS, 0.05f, 3f);
-
+            player.hurtServer((ServerLevel) level, ModDamageSources.registerDamageSource(DamageTypes.STARVE, level), 1f);
+            if (currentHealth>=1f) {
+                player.awardStat(Stats.ITEM_USED.get(this));
+                player.getItemInHand(InteractionHand.MAIN_HAND).hurtAndBreak(-1, player, InteractionHand.MAIN_HAND);
             }
         }
     }

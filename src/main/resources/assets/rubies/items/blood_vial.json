@@ -4,14 +4,14 @@
     "property": "minecraft:damage",
     "entries": [
       {
-        "threshold": 0,
+        "threshold": 0.90,
         "model": {
           "type": "minecraft:model",
           "model": "rubies:item/blood_vial_0"
         }
       },
       {
-        "threshold": 0.15,
+        "threshold": 0.60,
         "model": {
           "type": "minecraft:model",
           "model": "rubies:item/blood_vial_1"
@@ -25,14 +25,14 @@
         }
       },
       {
-        "threshold": 0.60,
+        "threshold": 0.15,
         "model": {
           "type": "minecraft:model",
           "model": "rubies:item/blood_vial_3"
         }
       },
       {
-        "threshold": 0.90,
+        "threshold": 0,
         "model": {
           "type": "minecraft:model",
           "model": "rubies:item/blood_vial_4"

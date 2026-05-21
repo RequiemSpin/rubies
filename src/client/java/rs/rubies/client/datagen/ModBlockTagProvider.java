@@ -18,6 +18,8 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
     public static final TagKey<Block> RUBY_BLOCKS = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "ruby_blocks"));
     public static final TagKey<Block> RUBY_ORES = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "ruby_ores"));
     public static final TagKey<Block> RETURN_ORES = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "return_ores"));
+    public static final TagKey<Block> LEAD_BLOCKS = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "lead_blocks"));
+    public static final TagKey<Block> LEAD_ORES = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Rubies.MOD_ID, "lead_ores"));
 
     public ModBlockTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
         super(output, registryLookupFuture);
@@ -30,6 +32,10 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         valueLookupBuilder(RUBY_BLOCKS)
                 .add(ModBlocks.RUBY_BLOCK)
                 .addTag(RUBY_ORES);
+        valueLookupBuilder(LEAD_BLOCKS)
+                .add(ModBlocks.LEAD_BLOCK)
+                .add(ModBlocks.RAW_LEAD_BLOCK)
+                .addTag(LEAD_ORES);
 
         //Ore Blocks
         valueLookupBuilder(RUBY_ORES)
@@ -38,15 +44,25 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         valueLookupBuilder(RETURN_ORES)
                 .add(ModBlocks.RETURN_ORE)
                 .add(ModBlocks.RETURN_DEEPSLATE_ORE);
+        valueLookupBuilder(LEAD_ORES)
+                .add(ModBlocks.LEAD_ORE)
+                .add(ModBlocks.LEAD_DEEPSLATE_ORE);
 
         //Mining/Tools
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-                .addTag(RUBY_BLOCKS);
+                .addTag(RUBY_BLOCKS)
+                .addTag(RETURN_ORES)
+                .addTag(LEAD_BLOCKS);
         valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .addTag(RUBY_BLOCKS);
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                .addTag(RETURN_ORES)
+                .addTag(LEAD_BLOCKS);
 
         //Other Vanilla
         valueLookupBuilder(BlockTags.BEACON_BASE_BLOCKS)
-                .add(ModBlocks.RUBY_BLOCK);
+                .add(ModBlocks.RUBY_BLOCK)
+                .add(ModBlocks.LEAD_BLOCK);
+
     }
 }
