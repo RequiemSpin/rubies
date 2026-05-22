@@ -58,7 +58,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 // Miscellaneous
                 shaped(RecipeCategory.MISC, ModItems.PHILOSOPHERS_CHISEL)
                         .pattern(" #@").pattern(" %#").pattern("#  ")
-                        .define('#', ModItems.LEAD_INGOT).define('@', ModItems.RUBY).define('%', ModItems.BLOOD_VIAL)
+                        .define('#', ModItems.LEAD_INGOT).define('@', ModBlocks.RUBY_BLOCK).define('%', ModItems.BLOOD_VIAL)
                         .unlockedBy(getHasName(ModItems.BLOOD_VIAL), has(ModItems.BLOOD_VIAL)).group(("chisel"));
                 shapeless(RecipeCategory.MISC, ModItems.BLOOD_VIAL)
                         .requires(ModItems.RUBY).requires(Items.GLASS_BOTTLE)

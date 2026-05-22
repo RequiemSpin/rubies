@@ -46,4 +46,12 @@ public class BloodVialItem extends Item {
         player.startUsingItem(hand);
         return InteractionResult.SUCCESS;
     }
+
+    @Override
+    public void hurtEnemy(ItemStack itemStack, LivingEntity mob, LivingEntity attacker) {
+        if (attacker instanceof Player player && CommonItemFunctions.checkSacrifice(mob, 2)) {
+            itemStack.hurtAndBreak(-1, attacker, player.getUsedItemHand());
+        }
+        super.hurtEnemy(itemStack, mob, attacker);
+    }
 }

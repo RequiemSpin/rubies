@@ -1,6 +1,7 @@
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
+	id 'org.jetbrains.kotlin.jvm'
 }
 
 version = project.mod_version
@@ -12,6 +13,11 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	maven {
+		name = "Nucleoid"
+		url = 'https://maven.nucleoid.xyz/releases'
+	}
+	mavenCentral()
 }
 
 loom {
@@ -23,7 +29,6 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
 }
 
 fabricApi {
@@ -40,7 +45,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
+
+	implementation "eu.pb4:trinkets:${trinkets_version}"
+	implementation "com.ptsmods:devlogin:3.5"
 }
 
 processResources {
@@ -62,8 +69,6 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_25
-	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
@@ -90,4 +95,7 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
+}
+kotlin {
+	jvmToolchain(25)
 }

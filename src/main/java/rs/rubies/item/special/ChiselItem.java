@@ -2,14 +2,21 @@ package rs.rubies.item.special;
 
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import rs.rubies.Rubies;
 import rs.rubies.block.ModBlocks;
 
 import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class ChiselItem extends Item {
@@ -73,15 +80,27 @@ public class ChiselItem extends Item {
 
         Level level = context.getLevel();
         Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
+        int dmg = 1;
 
         if(CHISEL_MAP.containsKey(clickedBlock) && !level.isClientSide()) {
             level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
+            if (clickedBlock==Blocks.DEEPSLATE_EMERALD_ORE || clickedBlock==Blocks.DIAMOND_ORE) { dmg = 8; }
+            context.getItemInHand().hurtAndBreak(dmg, context.getPlayer(), context.getHand());
 
             assert context.getPlayer() != null;
             context.getPlayer().awardStat(Stats.ITEM_USED.get(this));
-            context.getItemInHand().hurtAndBreak(1, context.getPlayer(), context.getHand());
         }
 
         return InteractionResult.SUCCESS;
     }
+
+    @Override
+    public void hurtEnemy(ItemStack itemStack, LivingEntity mob, LivingEntity attacker) {
+        if (attacker instanceof Player player && CommonItemFunctions.checkSacrifice(mob, 5)) {
+            itemStack.hurtAndBreak(-1, attacker, player.getUsedItemHand());
+        }
+        super.hurtEnemy(itemStack, mob, attacker);
+    }
+
+
 }

@@ -1,0 +1,9 @@
+{
+  "replace": true,
+  "amount": 3,
+  "icon": "trinkets:container/slots/offhand/trinket",
+  "drop_rule": "keep",
+  "values": [
+
+  ]
+}

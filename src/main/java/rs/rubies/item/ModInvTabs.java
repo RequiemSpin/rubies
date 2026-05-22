@@ -44,6 +44,7 @@ public class ModInvTabs {
                         output.accept((ModItems.VACANT_TRINKET));
 
                         //Trinkets
+                        output.accept(ModItems.TRINKET_NIMBLENESS);
 
                         output.accept(ModItems.SHATTERED_VACANT_TRINKET);
 

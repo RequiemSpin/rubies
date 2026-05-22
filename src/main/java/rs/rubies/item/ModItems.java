@@ -10,6 +10,8 @@ import rs.rubies.Rubies;
 import rs.rubies.item.special.BloodVialItem;
 import rs.rubies.item.special.ChiselItem;
 import rs.rubies.item.special.ReturnItem;
+import rs.rubies.item.special.trinkets.EndersFamiliarityTrinket;
+import rs.rubies.item.special.trinkets.NimblenessTrinket;
 
 import java.util.function.Function;
 
@@ -25,10 +27,12 @@ public class ModItems {
 
     // Special
     public static final Item RETURN_PEBBLE = registerItem("return_pebble", properties -> new ReturnItem(properties.stacksTo(1)));
-    public static final Item PHILOSOPHERS_CHISEL = registerItem("philosophers_chisel", properties -> new ChiselItem(properties.durability(16)));
+    public static final Item PHILOSOPHERS_CHISEL = registerItem("philosophers_chisel", properties -> new ChiselItem(properties.durability(32)));
 
     //Trinkets
     public static final Item VACANT_TRINKET = registerItem("vacant_trinket", Item::new);
+    //public static final Item TRINKET_ENDERS_FAMILIARITY = registerItem("trinket_enders_familiarity", properties -> new EndersFamiliarityTrinket(properties.stacksTo(1)));
+    public static final Item TRINKET_NIMBLENESS = registerItem("trinket_nimbleness", properties -> new NimblenessTrinket(properties.stacksTo(1)));
     public static final Item SHATTERED_VACANT_TRINKET = registerItem("shattered_vacant_trinket", Item::new);
 
     //public static final Item RUBY = registerItem("ruby", properties -> new Item(properties);
