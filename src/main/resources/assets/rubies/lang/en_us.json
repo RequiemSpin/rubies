@@ -4,12 +4,14 @@
   "item.rubies.lead_ingot": "Lead Ingot",
   "item.rubies.raw_lead": "Raw Lead",
   "item.rubies.return_pebble": "Return Pebble",
+  "item.rubies.kasane_pearto": "Kasane Pearto",
 
   "item.rubies.philosophers_chisel": "Philosopher's Chisel",
 
   "item.rubies.vacant_trinket": "Vacant Trinket",
   "item.rubies.trinket_enders_familiarity": "§2§oEnder's Familiarity Trinket",
   "item.rubies.trinket_nimbleness": "§f§oTrinket of Nimbleness",
+  "item.rubies.trinket_conduit_conducer": "§b§oConduit Conducer Trinket",
   "item.rubies.shattered_vacant_trinket": "Shattered Vacant Trinket",
 
   "block.rubies.ruby_block": "Block of Ruby",

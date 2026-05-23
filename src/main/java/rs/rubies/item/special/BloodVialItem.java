@@ -30,7 +30,7 @@ public class BloodVialItem extends Item {
     // Hurt Player & Gain Durability
     @Override
     public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int ticksRemaining) {
-        if ((ticksRemaining==1) && (livingEntity instanceof Player player) && (player instanceof ServerPlayer serverPlayer)) {
+        if ((ticksRemaining==1) && (livingEntity instanceof Player player) && (player instanceof ServerPlayer serverPlayer) && (livingEntity.getItemInHand(InteractionHand.MAIN_HAND).isDamaged())) {
             float currentHealth = player.getHealth();
             player.hurtServer((ServerLevel) level, ModDamageSources.registerDamageSource(DamageTypes.STARVE, level), 1f);
             if (currentHealth>=1f) {

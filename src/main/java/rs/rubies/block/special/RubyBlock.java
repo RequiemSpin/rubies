@@ -9,28 +9,36 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import rs.rubies.Rubies;
 import rs.rubies.item.ModItems;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class RubyBlock extends Block {
 
     private static final Map<Item, Item> TRANSFORM_MAP = new HashMap<>();
+    public static final ArrayList<Item> TRINKETS = new ArrayList<>(Arrays.asList(
+            ModItems.TRINKET_NIMBLENESS
+    ));
 
     public static void initializeTransformMap() {
         TRANSFORM_MAP.put(ModItems.SHATTERED_VACANT_TRINKET, ModItems.VACANT_TRINKET);
+        TRANSFORM_MAP.put(Items.POISONOUS_POTATO, ModItems.KASANE_PEARTO);
     }
+
+
 
     public RubyBlock(Properties properties) {
         super(properties);
@@ -41,6 +49,7 @@ public class RubyBlock extends Block {
 
         if (entity instanceof Player player) {
             player.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 5*20, 2));
+        //if (player.getInventory().main.stream.anyMatch(stack -> stack.isOf(Items.REDSTONE)) {}
         }
 
         if ((entity instanceof ItemEntity itemEntity) && (TRANSFORM_MAP.containsKey(itemEntity.getItem().getItem()))) {
