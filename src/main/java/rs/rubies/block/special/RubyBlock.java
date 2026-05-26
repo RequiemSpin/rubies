@@ -35,7 +35,6 @@ public class RubyBlock extends Block {
 
     public static void initializeTransformMap() {
         TRANSFORM_MAP.put(ModItems.SHATTERED_VACANT_TRINKET, ModItems.VACANT_TRINKET);
-        TRANSFORM_MAP.put(Items.POISONOUS_POTATO, ModItems.KASANE_PEARTO);
     }
 
 
@@ -59,6 +58,20 @@ public class RubyBlock extends Block {
             level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.5, pos.getY()+1, pos.getZ()+.65, 0, .5, 0);
             level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.5, pos.getY()+1, pos.getZ()+.35, 0, .5, 0);
             level.playSound(entity, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, .5f, 1f);
+            itemEntity.setItem(new ItemStack(targetItem, itemEntity.getItem().getCount()));
+        } else if((entity instanceof ItemEntity itemEntity) && (itemEntity.getItem().getItem()==Items.POISONOUS_POTATO)) {
+            int r = (int) (Math.random()*3);
+            Item targetItem = ModItems.ADOCADO;
+            if (r==0) {
+                targetItem = ModItems.KASANE_PEARTO;
+            } else if(r==1) {
+                targetItem = ModItems.LEEKU;
+            }
+            level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.65, pos.getY()+1, pos.getZ()+.5, 0, .5, 0);
+            level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.35, pos.getY()+1, pos.getZ()+.5, 0, .5, 0);
+            level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.5, pos.getY()+1, pos.getZ()+.65, 0, .5, 0);
+            level.addParticle(ParticleTypes.ENCHANT, pos.getX()+.5, pos.getY()+1, pos.getZ()+.35, 0, .5, 0);
+            level.playSound(entity, pos, SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, .5f, 1f);
             itemEntity.setItem(new ItemStack(targetItem, itemEntity.getItem().getCount()));
         }
 

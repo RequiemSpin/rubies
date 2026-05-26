@@ -51,18 +51,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.RAW_LEAD, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_LEAD_BLOCK);
 
                 // Trinkets
-                shapeless(RecipeCategory.MISC, ModItems.SHATTERED_VACANT_TRINKET)
-                        .requires(ModItems.PHILOSOPHERS_CHISEL).requires(Items.HEARTBREAK_POTTERY_SHERD)
-                        .unlockedBy(getHasName(ModItems.PHILOSOPHERS_CHISEL), has(ModItems.PHILOSOPHERS_CHISEL)).group(("trinkets"));
+                shaped(RecipeCategory.MISC, ModItems.SHATTERED_VACANT_TRINKET, 1)
+                        .pattern("@#@").pattern("@%@").pattern("@@@")
+                        .define('#', ModItems.PHILOSOPHERS_CHISEL).define('%', Items.HEARTBREAK_POTTERY_SHERD).define('@', ModItems.LEAD_INGOT)
+                        .unlockedBy(getHasName(Items.HEARTBREAK_POTTERY_SHERD), has(Items.HEARTBREAK_POTTERY_SHERD)).group("trinkets").save(output);
+
 
                 // Miscellaneous
-                shaped(RecipeCategory.MISC, ModItems.PHILOSOPHERS_CHISEL)
+                shaped(RecipeCategory.MISC, ModItems.PHILOSOPHERS_CHISEL, 1)
                         .pattern(" #@").pattern(" %#").pattern("#  ")
                         .define('#', ModItems.LEAD_INGOT).define('@', ModBlocks.RUBY_BLOCK).define('%', ModItems.BLOOD_VIAL)
-                        .unlockedBy(getHasName(ModItems.BLOOD_VIAL), has(ModItems.BLOOD_VIAL)).group(("chisel"));
+                        .unlockedBy(getHasName(ModItems.BLOOD_VIAL), has(ModItems.BLOOD_VIAL)).group("chisel").save(output);
                 shapeless(RecipeCategory.MISC, ModItems.BLOOD_VIAL)
                         .requires(ModItems.RUBY).requires(Items.GLASS_BOTTLE)
-                        .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).group(("vial"));
+                        .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).group("vial").save(output);
 
                 /*
 
@@ -75,11 +77,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 shaped(RecipeCategory.MISC, ModItems.OUTPUT)
                         .pattern("###").pattern("###").pattern("###")
                         .define('#', ModItems.INPUT)
-                        .unlockedBy(getHasName(ModItems.INPUT), has(ModItems.INPUT)).group(("group").save(output));
+                        .unlockedBy(getHasName(ModItems.INPUT), has(ModItems.INPUT)).group("group").save(output));
 
                 shapeless(RecipeCategory.MISC, ModItems.OUTPUT)
                         .requires(ModItems.INPUT)
-                        .unlockedBy(getHasName(ModItems.INPUT), has(ModItems.INPUT)).group(("group").save(output));
+                        .unlockedBy(getHasName(ModItems.INPUT), has(ModItems.INPUT)).save(output));
 
                 */
             }

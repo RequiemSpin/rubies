@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trinkets",
+  "key": {
+    "#": "rubies:philosophers_chisel",
+    "%": "minecraft:heartbreak_pottery_sherd",
+    "@": "rubies:lead_ingot"
+  },
+  "pattern": [
+    "@#@",
+    "@%@",
+    "@@@"
+  ],
+  "result": {
+    "id": "rubies:shattered_vacant_trinket"
+  }
+}

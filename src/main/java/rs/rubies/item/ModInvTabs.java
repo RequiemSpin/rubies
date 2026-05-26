@@ -35,6 +35,10 @@ public class ModInvTabs {
                         output.accept(ModBlocks.RETURN_DEEPSLATE_ORE);
                         output.accept(ModBlocks.RETURN_ORE);
 
+                        output.accept(ModItems.KASANE_PEARTO);
+                        output.accept(ModItems.ADOCADO);
+                        output.accept(ModItems.LEEKU);
+
                     }).build());
 
     public static final CreativeModeTab TRINKETS_TAB = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,

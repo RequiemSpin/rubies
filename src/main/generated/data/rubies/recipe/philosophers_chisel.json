@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chisel",
+  "key": {
+    "#": "rubies:lead_ingot",
+    "%": "rubies:blood_vial",
+    "@": "rubies:ruby_block"
+  },
+  "pattern": [
+    " #@",
+    " %#",
+    "#  "
+  ],
+  "result": {
+    "id": "rubies:philosophers_chisel"
+  }
+}

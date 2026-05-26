@@ -28,7 +28,9 @@ public class ModItems {
     // Special
     public static final Item RETURN_PEBBLE = registerItem("return_pebble", properties -> new ReturnItem(properties.stacksTo(1).durability(1)));
     public static final Item PHILOSOPHERS_CHISEL = registerItem("philosophers_chisel", properties -> new ChiselItem(properties.durability(32)));
-    public static final Item KASANE_PEARTO = registerItem("kasane_pearto", properties -> new Item(properties.food(ModFoodItems.KASANE_PEARTO, ModFoodItems.KASANE_PEARTO_COMSUMABLE)));
+    public static final Item KASANE_PEARTO = registerItem("kasane_pearto", properties -> new Item(properties.food(ModFoodItems.VOCALOID_FOOD, ModFoodItems.VOCALOID_FOOD_COMSUMABLE)));
+    public static final Item ADOCADO = registerItem("adocado", properties -> new Item(properties.food(ModFoodItems.VOCALOID_FOOD, ModFoodItems.VOCALOID_FOOD_COMSUMABLE)));
+    public static final Item LEEKU = registerItem("leeku", properties -> new Item(properties.food(ModFoodItems.VOCALOID_FOOD, ModFoodItems.VOCALOID_FOOD_COMSUMABLE)));
 
     //Trinkets
     public static final Item VACANT_TRINKET = registerItem("vacant_trinket", Item::new);

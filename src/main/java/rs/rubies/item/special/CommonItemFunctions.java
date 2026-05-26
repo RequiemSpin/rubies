@@ -39,6 +39,6 @@ public class CommonItemFunctions {
     ));
 
     public static boolean checkSacrifice(LivingEntity mob, int odds) {
-        return (((int) (Math.random()*odds))==1 && sacrificial_mobs.contains(mob.getType()));
+        return (((int) (Math.random()*odds))==0 && sacrificial_mobs.contains(mob.getType()));
     }
 }
